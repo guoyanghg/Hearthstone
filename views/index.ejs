@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>HearthStone</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1><% for(var i=0;i<4;i++){%>
+      <tr>
+        <td>
+      <%= cards[i].name%>
+      </td>
+      </tr>
+      <% } %></h1>
+    <p>Welcome to HearthStone</p>
   </body>
 </html>
