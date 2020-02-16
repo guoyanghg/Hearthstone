@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var cardService = require('../services/cardService');
-
+var cardsBuffter = [];
 var cardsfortesting = [{
     "cardId": "EX1_116",
     "dbfId": "559",
@@ -91,11 +91,22 @@ var cardsfortesting = [{
 
 /* GET users listing. */
 
-router.get('/class/rogue', function(req, res, next) {
-  cardService.getCardsByClassName("Rogue")
-      .then(cards => {
-         res.render('rogue', { cards: cardsfortesting });
-      });
+router.get('/class/:classname', function(req, res, next) {
+    var classname = req.params.classname;
+    const nameCapitalized = classname.charAt(0).toUpperCase() + classname.slice(1);
+    cardService.getCardsByClassName(nameCapitalized)
+        .then(cards => {
+            cardsBuffter = cards;
+            res.render('cards', { cards: cardsBuffter, title: nameCapitalized});
+        });
+});
+
+router.get('/class/:classname/:pagenum', function(req, res, next) {
+    var classname = req.params.classname;
+    const pagenum = req.params.pagenum;
+    if(cardsBuffter.length !== 0){
+
+    }
 });
 
 router.get('/class', function(req, res, next) {
