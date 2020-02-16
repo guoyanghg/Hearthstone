@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%include partials/header%>
     <title>HearthStone</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><% for(var i=0;i<4;i++){%>
-      <tr>
-        <td>
-      <%= cards[i].name%>
-      </td>
-      </tr>
-      <% } %></h1>
-    <p>Welcome to HearthStone</p>
+
+  <%include partials/navbar%>
+
+  <div class="container">
+    <h1 class="mt-4">Welcome to HearthStone</h1>
+    <p>Hello world!</p>
+  </div>
+  <%include partials/script%>
   </body>
 </html>

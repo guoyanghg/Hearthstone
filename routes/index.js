@@ -6,10 +6,7 @@ var cardService = require('../services/cardService');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  cardService.getCardsByClassName("Rogue")
-      .then(cards => {
-        res.render('index', { cards: cards });
-      });
+  res.render("index");
 });
 
 module.exports = router;
