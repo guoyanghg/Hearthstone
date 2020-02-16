@@ -91,11 +91,15 @@ var cardsfortesting = [{
 
 /* GET users listing. */
 
-router.get('/rogue', function(req, res, next) {
+router.get('/class/rogue', function(req, res, next) {
   cardService.getCardsByClassName("Rogue")
       .then(cards => {
          res.render('rogue', { cards: cardsfortesting });
       });
+});
+
+router.get('/class', function(req, res, next) {
+    res.render("class");
 });
 
 module.exports = router;
