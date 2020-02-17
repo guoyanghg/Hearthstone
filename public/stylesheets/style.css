@@ -11,7 +11,11 @@
   box-shadow: none;
   outline: none;
 }
-
+.btn-group {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
 .btn-primary {
   color: #fff;
   background-color: #007b5e;

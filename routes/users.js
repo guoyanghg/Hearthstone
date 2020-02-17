@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var cardService = require('../services/cardService');
-var cardsBuffter = [];
 var cardsfortesting = [{
     "cardId": "EX1_116",
     "dbfId": "559",
@@ -96,8 +95,7 @@ router.get('/class/:classname', function(req, res, next) {
     const nameCapitalized = classname.charAt(0).toUpperCase() + classname.slice(1);
     cardService.getCardsByClassName(nameCapitalized)
         .then(cards => {
-            cardsBuffter = cards;
-            res.render('cards', { cards: cardsBuffter, title: nameCapitalized});
+            res.render('cards', { cards: cards, title: nameCapitalized});
         });
 });
 

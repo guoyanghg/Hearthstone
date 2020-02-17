@@ -1,3 +1,5 @@
+var cardModel = require("../models/cardModel");
+
 // create a unirest object
 var unirest = require("unirest");
 var header = {
@@ -9,17 +11,18 @@ var header = {
 var getCardsByClassName = function(className){
 
     return new Promise((resolve, reject) => {
-        var req = unirest("GET", "https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/classes/" + className);
-        req.headers(header)
-            .end(function (response) {
-                if (response.error){
-                    reject(response.error);
-                }else {
-                    resolve(response.body);
-                }
-            });
-        }
-    );
+        var query = {
+            "playerClass": className
+        };
+        cardModel.find(query, function (err, cards) {
+            if (err) {
+                reject(err);
+            } else {
+                console.log(cards);
+                resolve(cards);
+            }
+        });
+    });
 };
 
 
