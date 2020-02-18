@@ -1,7 +1,7 @@
 /* FontAwesome for working BootSnippet :> */
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-#team {
-  background: #eee !important;
+body {
+  background: transparent url(/images/body-content-bg.jpg) 50% 0 repeat-y;
 }
 
 .btn-primary:hover,
@@ -34,8 +34,7 @@ section .section-title {
 }
 
 #team .card {
-  border: none;
-  background: #ffffff;
+  background: transparent;
 }
 
 .image-flip:hover .backside,
@@ -75,13 +74,15 @@ section .section-title {
   -ms-transform: rotateY(0deg);
   z-index: 2;
   margin-bottom: 30px;
+  -webkit-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+  -moz-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+  box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
 }
 
 .backside {
   position: absolute;
   top: 0;
   left: 0;
-  background: white;
   -webkit-transform: rotateY(-180deg);
   -moz-transform: rotateY(-180deg);
   -o-transform: rotateY(-180deg);
