@@ -89,23 +89,35 @@ var cardsfortesting = [{
 
 
 /* GET users listing. */
-
-router.get('/class/:classname', function(req, res, next) {
-    var classname = req.params.classname;
-    const nameCapitalized = classname.charAt(0).toUpperCase() + classname.slice(1);
-    cardService.getCardsByClassName(nameCapitalized)
-        .then(cards => {
-            res.render('cards', { cards: cards, title: nameCapitalized});
+router.get('/class/:classname/:cardname', function(req, res, next) {
+    const cardname = req.params.cardname;
+    cardService.getCardByName(cardname)
+        .then(card=>{
+            console.log(card);
+            res.render('singlecard', {card: card});
         });
 });
 
-router.get('/class/:classname/:pagenum', function(req, res, next) {
+router.get('/class/:classname', function(req, res, next) {
     var classname = req.params.classname;
-    const pagenum = req.params.pagenum;
-    if(cardsBuffter.length !== 0){
+    var pageNum = req.query.pageNum || 1;
+    console.log(pageNum);
+    const nameCapitalized = classname.charAt(0).toUpperCase() + classname.slice(1);
+    cardService.getCardsByClassName(nameCapitalized, pageNum, 12)
+        .then(resultobj => {
+            console.log(req.baseUrl + req.path);
+            res.render('cards', {
+                cards: resultobj.cards,
+                title: nameCapitalized,
+                pageNum: pageNum,
+                url: req.baseUrl + req.path,
+                totalNum: resultobj.totalNum
+            });
+        });
 
-    }
 });
+
+
 
 router.get('/class', function(req, res, next) {
     res.render("class");

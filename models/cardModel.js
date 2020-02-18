@@ -5,6 +5,7 @@ mongoose.connect('mongodb+srv://guoyanghg:guoyangguoli123@hearthstone-jbkpq.mong
     useUnifiedTopology: true
 });
 
+//textschema for collection test
 var testSchema = new mongoose.Schema({
     name: String,
     major: String,
@@ -40,6 +41,7 @@ var commonCardSchema  = new mongoose.Schema({
     ]
 });
 
+// pay attention to the collection name!!!! damn
 var commonCardModel = mongoose.model('commonCardModel', commonCardSchema, 'cards');
 
 module.exports = commonCardModel;

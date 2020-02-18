@@ -11,7 +11,7 @@
   box-shadow: none;
   outline: none;
 }
-.btn-group {
+#group {
   display: table;
   margin-left: auto;
   margin-right: auto;

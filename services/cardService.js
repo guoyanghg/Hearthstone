@@ -1,31 +1,57 @@
 var cardModel = require("../models/cardModel");
 
-// create a unirest object
-var unirest = require("unirest");
-var header = {
-    "x-rapidapi-host": "omgvamp-hearthstone-v1.p.rapidapi.com",
-    "x-rapidapi-key": "220427409dmsha5b33e7e664dcdep18a129jsnb5afb437f052"
-};
 
-
-var getCardsByClassName = function(className){
-
-    return new Promise((resolve, reject) => {
-        var query = {
-            "playerClass": className
+var getCardByName = function (cardName) {
+    return new Promise((resolve, reject)=>{
+        const query ={
+            "name": cardName
         };
-        cardModel.find(query, function (err, cards) {
-            if (err) {
+        cardModel.findOne(query, (err, card)=>{
+            if(err){
                 reject(err);
-            } else {
-                console.log(cards);
-                resolve(cards);
+            }else{
+                resolve(card);
             }
         });
+
+    })
+};
+
+var getCardsByClassName = function(className, pageNum, size){
+
+    return new Promise((resolve, reject) => {
+        const query = {
+            "playerClass": className,
+            "type": "Minion",
+            "img": {
+                "$exists":true
+            },
+            "imgGold":{
+                "$exists":true
+            },
+            "cost":{
+                "$exists":true
+            }
+        };
+        cardModel.find(query)
+            .skip((pageNum-1)*size)
+            .limit(size)
+            .sort({cost:'asc'})
+            .exec(function (err, cards) {
+                cardModel.count(query).exec(function (err, count) {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve({cards: cards, totalNum: Math.ceil(count/size)});
+                    }
+                });
+            });
+
     });
 };
 
 
 module.exports = {
+    getCardByName:getCardByName,
     getCardsByClassName: getCardsByClassName
 };
