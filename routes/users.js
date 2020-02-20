@@ -82,13 +82,30 @@ const playerClasses = [
         color: "black"
 }];
 
+const rarity =[{
+    rarity: "Free",
+    img:"/images/free_image.png"
+},{
+    rarity: "Common",
+    img:"/images/common_image.png"
+},{
+    rarity: "Rare",
+    img:"/images/rare_image.png"
+},{
+    rarity: "Epic",
+    img:"/images/epic_image.png"
+},{
+    rarity: "Legendary",
+    img:"/images/legendary_image.png"
+}];
+
 
 
 
 
 
 /* GET users listing. */
-router.get('/class/:classname/:cardname', function(req, res, next) {
+router.get('/singlecard/:cardname', function(req, res, next) {
     const cardname = req.params.cardname;
     cardService.getCardByName(cardname)
         .then(card=>{
@@ -108,7 +125,7 @@ router.get('/class/:classname', function(req, res, next) {
                 cards: resultobj.cards,
                 title: classname,
                 pageNum: pageNum,
-                url: req.baseUrl + req.path,
+                url: req.baseUrl,
                 totalNum: resultobj.totalNum,
                 activeItem: -1
             });
@@ -120,5 +137,29 @@ router.get('/class/:classname', function(req, res, next) {
 router.get('/class', function(req, res, next) {
     res.render("class", {playerClasses: playerClasses, activeItem: -1});
 });
+
+router.get('/rarity', function(req, res, next) {
+    res.render("rarity", {rarity: rarity, activeItem: -1});
+});
+
+router.get('/rarity/:rarityname', function(req, res, next) {
+    var rarityname = req.params.rarityname;
+    var pageNum = req.query.pageNum || 1;
+    console.log(pageNum);
+    cardService.getCardsByRarity(rarityname, pageNum, 12)
+        .then(resultobj => {
+            console.log(req.baseUrl + req.path);
+            res.render('cards', {
+                cards: resultobj.cards,
+                title: rarityname,
+                pageNum: pageNum,
+                url: req.baseUrl + req.path,
+                totalNum: resultobj.totalNum,
+                activeItem: -1
+            });
+        });
+});
+
+
 
 module.exports = router;
