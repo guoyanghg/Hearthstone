@@ -3,14 +3,50 @@
   <head>
     <%include partials/header%>
     <title>HearthStone</title>
+    <link rel="stylesheet" href="/stylesheets/index.css">
   </head>
   <body>
 
   <%include partials/navbar%>
 
   <div class="container">
-    <h1 class="mt-4">Welcome to HearthStone</h1>
-    <a href="./api/v1/class">Go to the class page!</a>
+    <h1 class="mt-4">Welcome to HearthStone Wiki By Yang Guo!</h1>
+    <div class="card mb-3 mt-4">
+      <div class="card-header">
+        Introduction
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">HearthStone Wiki</h5>
+        <p class="card-text">This is my intern challenge for SupplyFlame! As a crazy fan of HearthStone, you can check the cards information using this HearthStone Wiki, Enjoy it!</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-header">
+        Getting Started!
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Searching By PlayerClass</h5>
+        <p class="card-text">In this beta version, you can got the cards information by <a href="/api/v1/class">PlayerClass</a></p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+
+      <div class="card-body">
+        <h5 class="card-title">Searching By Rarity</h5>
+        <p class="card-text">You can also got the cards information by <a href="/api/v1/rarity">Rarity</a></p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+    <div class="card mb-5">
+      <div class="card-header">
+        Reference
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Data Source</h5>
+        <p class="card-text">Many thanks to <a href="https://hearthstoneapi.com">https://hearthstoneapi.com</a></p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
   </div>
   <%include partials/script%>
   </body>

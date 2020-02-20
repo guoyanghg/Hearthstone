@@ -24,9 +24,8 @@ section {
 
 section .section-title {
     text-align: center;
-    color: #007b5e;
+    color: black;
     margin-bottom: 50px;
-    text-transform: uppercase;
 }
 
 #team .card {
@@ -79,7 +78,7 @@ section .section-title {
 .backside {
     position: absolute;
     top: 0;
-    left: 0;
+    width: 100%;
     -webkit-transform: rotateY(-180deg);
     -moz-transform: rotateY(-180deg);
     -o-transform: rotateY(-180deg);
@@ -115,15 +114,16 @@ section .section-title {
 
 .backside .card a {
     font-size: 18px;
-    color: #007b5e !important;
 }
 
-.frontside .card .card-title,
-.backside .card .card-title {
-    color: #007b5e !important;
-}
 
 .frontside .card .card-body img {
     width: 286px;
     height: 395px;
+}
+
+.backside .card .card-body img {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
 }

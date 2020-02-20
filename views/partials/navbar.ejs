@@ -3,36 +3,54 @@
 <link rel="stylesheet" href="/stylesheets/navbar.css">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
-        <a class="navbar-brand" href="#">
-            <img src="http://placehold.it/150x50?text=Logo" alt="">
+        <a class="navbar-brand" href="/">
+            <img id="logo" src="/images/logo.png">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./api/v1/class">Rogue</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
+                <%if (activeItem === 0) {%>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                <%} else{%>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                <%}%>
+                <%if (activeItem=== 1) {%>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Services</a>
+                        </li>
+                <%} else{%>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Services</a>
+                        </li>
+                <%}%>
+
+                <%if (activeItem=== 2){%>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                <%} else {%>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                <%}%>
             </ul>
         </div>
     </div>
 </nav>
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid mb-0">
     <div class="container text-white">
-        <h1 class="display-4">Saviors of Uldum HearthStone</h1>
-        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+        <h1 class="display-4">HearthStone Wiki</h1>
+        <p class="lead">In the name of the Lich King!!!</p>
     </div>
 </div>
 

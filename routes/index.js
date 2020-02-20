@@ -6,7 +6,7 @@ var cardService = require('../services/cardService');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render("index");
+  res.render("index", {activeItem: 0});
 });
 
 module.exports = router;

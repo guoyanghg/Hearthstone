@@ -2,27 +2,65 @@
 <html>
 <head>
     <%include partials/header.ejs%>
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/index.css">
     <title><%=card.name%></title>
 </head>
 <body>
 <%include partials/navbar%>
 <div class="container">
     <div class="row">
-        <div class="col-7 col-sm-6 col-md-4 col-lg-3">
-            <div class="card" style="width: 17rem;">
-                <img src="<%=card.img%>" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
+        <div class="col-sm-6 col-md-4 col-lg-4">
+            <div class="card">
+                <img class="card-img-top" src="<%=card.img%>">
             </div>
         </div>
-        <div class="col-7 col-sm-6 col-md-7 col-lg-8">
-            <div class="card">
+        <div class="col-sm-6 col-md-8 col-lg-8">
+            <div class="card mt-4 mb-3">
+                <div class="card-header">
+                    Card Info
+                </div>
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text">Name:<%=card.name%></p>
+                    <p class="card-text">Type:<%=card.type%></p>
+                    <p class="card-text">PlayerClass:<%=card.playerClass%></p>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-header">
+                    Property
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Cost:<%=card.cost%></p>
+                    <p class="card-text">Attack:<%=card.attack%></p>
+                    <p class="card-text">Health:<%=card.health%></p>
+                    <p class="card-text">Mechanics:<%=card.text%></p>
+                </div>
+            </div>
+            <div class="card mb-5">
+                <div class="card-header">
+                    Other Info
+                </div>
+                <div class="card-body">
+                    <p class="card-text">CardId:<%=card.cardId%></p>
+                    <p class="card-text">CardSet:<%=card.cardSet%></p>
+                    <% if (card.faction!==undefined) {%>
+                        <p class="card-text">Faction: <%= card.faction%></p>
+                    <%}%>
+                    <% if (card.rarity!==undefined) {%>
+                        <p class="card-text">Rarity: <%= card.rarity%></p>
+                    <%}%>
+                    <% if (card.flavor!==undefined) {%>
+                        <p class="card-text">Flavor: <%= card.flavor%></p>
+                    <%}%>
+                    <% if (card.artist!==undefined) {%>
+                        <p class="card-text">Artist: <%= card.artist%></p>
+                    <%}%>
+                        <% if (card.elite!==undefined) {%>
+                            <p class="card-text">Elite: <%= card.elite%></p>
+                        <%}%>
+                        <% if (card.collectible!==undefined) {%>
+                            <p class="card-text">Collectible: <%= card.collectible%></p>
+                        <%}%>
                 </div>
             </div>
         </div>

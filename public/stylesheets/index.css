@@ -1,0 +1,15 @@
+body {
+    background: transparent url(/images/body-content-bg.jpg) 50% 0 repeat-y;
+}
+
+.card {
+    border: none;
+    background: transparent;
+}
+ .card-header {
+     background: burlywood;
+ }
+
+ .card-body {
+     background: antiquewhite;
+ }
