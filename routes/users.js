@@ -115,17 +115,17 @@ router.get('/singlecard/:cardname', function(req, res, next) {
 });
 
 router.get('/class/:classname', function(req, res, next) {
-    var classname = req.params.classname;
+    const classname = req.params.classname;
     var pageNum = req.query.pageNum || 1;
     console.log(pageNum);
     cardService.getCardsByClassName(classname, pageNum, 12)
         .then(resultobj => {
-            console.log(req.baseUrl + req.path);
             res.render('cards', {
                 cards: resultobj.cards,
                 title: classname,
                 pageNum: pageNum,
-                url: req.baseUrl,
+                baseurl: req.baseUrl,
+                pathurl: req.path,
                 totalNum: resultobj.totalNum,
                 activeItem: -1
             });
@@ -148,17 +148,36 @@ router.get('/rarity/:rarityname', function(req, res, next) {
     console.log(pageNum);
     cardService.getCardsByRarity(rarityname, pageNum, 12)
         .then(resultobj => {
-            console.log(req.baseUrl + req.path);
             res.render('cards', {
                 cards: resultobj.cards,
                 title: rarityname,
                 pageNum: pageNum,
-                url: req.baseUrl + req.path,
+                baseurl: req.baseUrl,
+                pathurl: req.path,
                 totalNum: resultobj.totalNum,
                 activeItem: -1
             });
         });
 });
+
+router.get('/cardback', function(req, res, next) {
+    const classname = req.params.classname;
+    var pageNum = req.query.pageNum || 1;
+    console.log(pageNum);
+    cardService.getCardsByClassName(classname, pageNum, 12)
+        .then(resultobj => {
+            res.render('cards', {
+                cards: resultobj.cards,
+                title: classname,
+                pageNum: pageNum,
+                baseurl: req.baseUrl,
+                pathurl: req.path,
+                totalNum: resultobj.totalNum,
+                activeItem: -1
+            });
+        });
+});
+
 
 
 

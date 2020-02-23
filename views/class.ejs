@@ -2,7 +2,9 @@
 <html>
 <head>
     <%include partials/header%>
-    <title>HearthStone</title>
+    <title>PlayerClass</title>
+    <link rel="stylesheet" href="/stylesheets/general_display.css">
+    <link rel="stylesheet" href="/stylesheets/hover_effect.css">
     <link rel="stylesheet" href="/stylesheets/class.css">
 </head>
 <body>
@@ -10,7 +12,7 @@
 <%include partials/navbar%>
 <!-- classes -->
 <section id="team" class="pb-5">
-    <h5 class="section-title h1">PlayerClasses</h5>
+    <h5 class="section-title h1">PlayerClass</h5>
     <div class="container">
         <div class="row">
             <!-- card loop -->
@@ -21,7 +23,7 @@
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="<%=playerClasses[i].img%>" alt="card image"></p>
+                                    <p><a href="<%=url + playerClasses[i].classname +"?pageNum=1"%>"><img id="<%=playerClasses[i].classname%>" class="img-fluid" src="<%=playerClasses[i].img%>" alt="card image"></a></p>
                                     <h4 style="color: <%=playerClasses[i].color%>" class="card-title"><%=playerClasses[i].classname%></h4>
                                 </div>
                             </div>
@@ -29,7 +31,7 @@
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><a href="<%="./class/"+ playerClasses[i].classname +"?pageNum=1"%>"><img class=" img-fluid" src="<%=playerClasses[i].icon%>" alt="card image"></a></p>
+                                    <p><a href="<%=url + playerClasses[i].classname +"?pageNum=1"%>"><img id="<%="back_"+playerClasses[i].classname%>" class="img-fluid" src="<%=playerClasses[i].icon%>" alt="card image"></a></p>
                                     <a style="color: <%=playerClasses[i].color%>" href="<%="./class/"+ playerClasses[i].classname +"?pageNum=1"%>"><h4 class="card-title"><%=playerClasses[i].classname%></h4></a>
                                     <p style="color: <%=playerClasses[i].color%>" class="card-text"><%=playerClasses[i].motto%></p>
                                     <p><%=playerClasses[i].intro%></p>

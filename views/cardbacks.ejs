@@ -32,34 +32,34 @@
 <section id="team" class="pb-5">
     <div class="container">
         <h5 class="section-title h1"><%=title%></h5>
-            <!-- card loop -->
+        <!-- card loop -->
         <%for (var i=0;i<Math.ceil(cards.length/4);i++) { %>
-        <div class="row">
-            <% for(var j=0;j<Math.min(4, cards.length-i*4);j++) { %>
-            <div class="col-lg-3 col-md-4">
-                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-                    <div class="mainflip">
-                        <div class="frontside">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <p><img onerror="imgErrorFront(this)" class="card-img" src="<%=cards[i*4+j].img%>" alt="card image"></p>
-                                    <h4 class="card-title"><%=cards[i*4+j].name%></h4>
+            <div class="row">
+                <% for(var j=0;j<Math.min(4, cards.length-i*4);j++) { %>
+                <div class="col-lg-3 col-md-4">
+                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                        <div class="mainflip">
+                            <div class="frontside">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <p><img onerror="imgErrorFront(this)" class="card-img" src="<%=cards[i*4+j].img%>" alt="card image"></p>
+                                        <h4 class="card-title"><%=cards[i*4+j].name%></h4>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="backside">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <p><a href="<%=baseurl +"/singlecard/"+cards[i*4+j].name%>"><img onerror="imgErrorBack(this)" class="card-img" src="<%=cards[i*4+j].imgGold%>" alt="card imageGold"></a></p>
-                                    <h4 class="card-title"><%=cards[i*4+j].name%></h4>
+                            <div class="backside">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <p><a href="<%=baseurl +"/singlecard/"+cards[i*4+j].name%>"><img onerror="imgErrorBack(this)" class="card-img" src="<%=cards[i*4+j].imgGold%>" alt="card imageGold"></a></p>
+                                        <h4 class="card-title"><%=cards[i*4+j].name%></h4>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <%}%>
             </div>
-            <%}%>
-        </div>
         <%}%>
     </div>
     <%include partials/buttongroup.ejs%>

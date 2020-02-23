@@ -9,4 +9,8 @@ router.get('/', function(req, res, next) {
   res.render("index", {activeItem: 0});
 });
 
+router.get('/contact', function(req, res, next) {
+  res.render("contact", {activeItem: 1});
+});
+
 module.exports = router;

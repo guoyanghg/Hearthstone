@@ -2,27 +2,27 @@
 <html>
 <head>
     <%include partials/header%>
-    <title>HearthStone</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>Rarity</title>
+    <link rel="stylesheet" href="/stylesheets/general_display.css">
+    <link rel="stylesheet" href="/stylesheets/rarity.css">
 </head>
 <body>
 
 <%include partials/navbar%>
 <!-- classes -->
 <section id="team" class="pb-5">
-    <h5 class="section-title h1">Rarities</h5>
+    <h5 class="section-title h1">Rarity</h5>
     <div class="container">
         <div class="row">
             <!-- card loop -->
             <%for(var i=0;i<rarity.length; i++) {%>
             <div class="col-xs-12 col-sm-6 col-md-4 mb-3">
-
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <p><a href="<%="./rarity/"+rarity[i].rarity+"?pageNum=1"%>"><img class=" img-fluid" src="<%=rarity[i].img%>" alt="card image"></a></p>
-                                    <a href="<%="./rarity/"+rarity[i].rarity+"?pageNum=1"%>"><h4 class="card-title"><%=rarity[i].rarity%></h4></a>
-                                </div>
-                            </div>
+                <div class="card">
+                    <div class="card-body text-center">
+                        <p><a href="<%="./rarity/"+rarity[i].rarity+"?pageNum=1"%>"><img class="img-fluid" src="<%=rarity[i].img%>" alt="<%=rarity[i].rarity%>"></a></p>
+                        <a href="<%="./rarity/"+rarity[i].rarity+"?pageNum=1"%>"><h4 class="card-title"><%=rarity[i].rarity%></h4></a>
+                    </div>
+                </div>
             </div>
             <%}%>
         </div>

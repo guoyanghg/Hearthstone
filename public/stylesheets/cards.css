@@ -1,0 +1,15 @@
+.frontside .card,
+ .backside .card {
+     height: 420px;
+
+ }
+
+.frontside .card .card-body img {
+    width: 90%;
+    height: 90%;
+}
+
+.backside .card .card-body img {
+    width: 90%;
+    height: 90%;
+}

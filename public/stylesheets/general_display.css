@@ -1,0 +1,13 @@
+body {
+    background: transparent url(/images/body-content-bg.jpg) 50% 0 repeat-y;
+}
+section .section-title {
+    margin-top: 50px;
+    text-align: center;
+    color: black;
+    margin-bottom: 50px;
+}
+
+#team .card {
+    background: transparent;
+}
