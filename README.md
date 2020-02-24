@@ -5,30 +5,30 @@ This project is for the SupplyFrame internship challenge.
 As a crazy Blizzard game fan, I implemented a HearthStone-Wiki project, the data is pulled from
 https://hearthstoneapi.com
 
-![index](screensots/index.png)
-![indexbottom](screensots/index bottom.png)
+![index](screenshots/index.png)
+![indexbottom](screenshots/index bottom.png)
 
 The goal of this website is to display HearthStone Card data in different ways:
 
 First, users can search cards by PlayerClass. There are 9 classes and 1 neutral catagroy.
 
-![class](screensots/class.png)
+![class](screenshots/class.png)
 
 Second, users can also grab cards by Rarity. There are 5 rarities in total.
 
-![rarity](screensots/rarity.png)
+![rarity](screenshots/rarity.png)
 
 For both searching method, paginaion is implemented and there is also a filter for user to get data of distinct Cost.
 
-![paginantion](screensots/pagination.png)
-![cards](screensots/cards.png)
-![filter](screensots/filter.png)
-![singlecard](screensots/singlecard.png)
+![paginantion](screenshots/pagination.png)
+![cards](screenshots/cards.png)
+![filter](screenshots/filter.png)
+![singlecard](screenshots/singlecard.png)
 
 Users can also get the card back information form cardback Interface.
 
-![cardback](screensots/cardback.png)
-![singlecardback](screensots/singlecardback.png)
+![cardback](screenshots/cardback.png)
+![singlecardback](screenshots/singlecardback.png)
 
 UI layout is implemented mainly based on Bootstrap 4.4 and there is also some customed CSS. The architeture for backend is Node + Express + EJS. Because there are some broken image links so I use plain JS in the client end to handle the 404 ERROR and replace them with the default image
 
