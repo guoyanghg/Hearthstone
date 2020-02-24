@@ -84,19 +84,24 @@ const playerClasses = [
 
 const rarity =[{
     rarity: "Free",
-    img:"/images/free_image.png"
+    img:"/images/free_image.png",
+    color: "black"
 },{
     rarity: "Common",
-    img:"/images/common_image.png"
+    img:"/images/common_image.png",
+    color: "#FFFFFF"
 },{
     rarity: "Rare",
-    img:"/images/rare_image.png"
+    img:"/images/rare_image.png",
+    color: "blue"
 },{
     rarity: "Epic",
-    img:"/images/epic_image.png"
+    img:"/images/epic_image.png",
+    color: "purple"
 },{
     rarity: "Legendary",
-    img:"/images/legendary_image.png"
+    img:"/images/legendary_image.png",
+    color: "orange"
 }];
 
 
@@ -118,7 +123,8 @@ router.get('/singlecard/:cardname', function(req, res, next) {
 });
 
 router.get('/class/:classname', function(req, res, next) {
-    const classname = req.params.classname;
+    var classname = req.params.classname;
+    classname = classname[0].toUpperCase() + classname.slice(1);
     var pageNum = req.query.pageNum || 1;
     var cost = req.query.cost;
     if(cost!==undefined){
@@ -175,6 +181,7 @@ router.get('/rarity', function(req, res, next) {
 
 router.get('/rarity/:rarityname', function(req, res, next) {
     var rarityname = req.params.rarityname;
+    rarityname = rarityname[0].toUpperCase() + rarityname.slice(1);
     var pageNum = req.query.pageNum || 1;
     var cost = req.query.cost;
     console.log(pageNum);
