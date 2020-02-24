@@ -11,15 +11,13 @@ First, you should install node and then you will get a npm as well.
 you can check these following documents for the different OS: 
 
 https://github.com/nodesource/distributions/blob/master/README.md
+
 https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions-enterprise-linux-fedora-and-snap-packages
 
 ```
 # Using macOS
 
-Homebrew:
-
 Install Xcode from AppleStore
-
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
 brew install node
@@ -49,7 +47,9 @@ cd to the Hearthstone/
 nodemon start
 ```
 
-open the brower: localhost:3000
+open the brower: 
+
+http://localhost:3000
 
 
 
