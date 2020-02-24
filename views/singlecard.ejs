@@ -6,7 +6,7 @@
     <title><%=card.name%></title>
 </head>
 <body>
-<%include partials/navbar%>
+<%include partials/navbar.ejs%>
 <div class="container">
     <div class="row">
         <div class="col-sm-6 col-md-4 col-lg-4">
@@ -17,50 +17,107 @@
         <div class="col-sm-6 col-md-8 col-lg-8 mt-5">
             <div class="card mt-4 mb-3">
                 <div class="card-header">
-                    Card Info
+                    <b>Card Info</b>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">Name:<%=card.name%></p>
-                    <p class="card-text">Type:<%=card.type%></p>
-                    <p class="card-text">PlayerClass:<%=card.playerClass%></p>
+                    <table class="table table-borderless">
+                        <tbody>
+                        <tr>
+                            <th style="width: 50%" scope="row">Name</th>
+                            <td><%=card.name%></td>
+                        </tr>
+                        <tr>
+                            <th style="width: 50%" scope="row">Type</th>
+                            <td><%=card.type%></td>
+
+                        </tr>
+                        <tr>
+                            <th style="width: 50%" scope="row">PlayerClass</th>
+                            <td><%=card.playerClass%></td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <div class="card mb-3">
                 <div class="card-header">
-                    Property
+                    <b>Property</b>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">Cost:<%=card.cost%></p>
-                    <p class="card-text">Attack:<%=card.attack%></p>
-                    <p class="card-text">Health:<%=card.health%></p>
-                    <p class="card-text">Mechanics:<%=card.text%></p>
+                    <table class="table table-borderless">
+                        <tbody>
+                        <tr>
+                            <th style="width: 50%" scope="row">Cost</th>
+                            <td><%=card.cost%></td>
+                        </tr>
+                        <tr>
+                            <th style="width: 50%" scope="row">Attack</th>
+                            <td><%=card.attack%></td>
+
+                        </tr>
+                        <tr>
+                            <th style="width: 50%" scope="row">Health</th>
+                            <td><%=card.health%></td>
+                        </tr>
+                        <tr>
+                            <th style="width: 50%" scope="row">Text</th>
+                            <td><%=card.text%></td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <div class="card mb-5">
                 <div class="card-header">
-                    Other Info
+                    <b>Other Info</b>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">CardId:<%=card.cardId%></p>
-                    <p class="card-text">CardSet:<%=card.cardSet%></p>
-                    <% if (card.faction!==undefined) {%>
-                        <p class="card-text">Faction: <%= card.faction%></p>
-                    <%}%>
-                    <% if (card.rarity!==undefined) {%>
-                        <p class="card-text">Rarity: <%= card.rarity%></p>
-                    <%}%>
-                    <% if (card.flavor!==undefined) {%>
-                        <p class="card-text">Flavor: <%= card.flavor%></p>
-                    <%}%>
-                    <% if (card.artist!==undefined) {%>
-                        <p class="card-text">Artist: <%= card.artist%></p>
-                    <%}%>
+                    <table class="table table-borderless">
+                        <tbody>
+                        <% if (card.cardSet!==undefined) {%>
+                            <tr>
+                                <th style="width: 50%" scope="row">CardSet</th>
+                                <td><%=card.cardSet%></td>
+                            </tr>
+                        <%}%>
+                        <% if (card.faction!==undefined) {%>
+                        <tr>
+                            <th style="width: 50%" scope="row">Fraction</th>
+                            <td><%=card.faction%></td>
+                        </tr>
+                        <%}%>
+                        <% if (card.rarity!==undefined) {%>
+                        <tr>
+                            <th style="width: 50%" scope="row">Rarity</th>
+                            <td><%=card.rarity%></td>
+                        </tr>
+                        <%}%>
+                        <% if (card.flavor!==undefined) {%>
+                        <tr>
+                            <th style="width: 50%" scope="row">Flavor</th>
+                            <td><%=card.flavor%></td>
+                        </tr>
+                        <%}%>
+                        <% if (card.artist!==undefined) {%>
+                        <tr>
+                            <th style="width: 50%" scope="row">Artist</th>
+                            <td><%=card.artist%></td>
+                        </tr>
+                        <%}%>
                         <% if (card.elite!==undefined) {%>
-                            <p class="card-text">Elite: <%= card.elite%></p>
+                        <tr>
+                            <th style="width: 50%" scope="row">Elite</th>
+                            <td><%=card.elite%></td>
+                        </tr>
                         <%}%>
                         <% if (card.collectible!==undefined) {%>
-                            <p class="card-text">Collectible: <%= card.collectible%></p>
+                        <tr>
+                            <th style="width: 50%" scope="row">collectible</th>
+                            <td><%=card.collectible%></td>
+                        </tr>
                         <%}%>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

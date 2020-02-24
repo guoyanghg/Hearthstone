@@ -1,6 +1,9 @@
 var cardModel = require("../models/cardModel").commonCardModel;
 var cardBackModel = require("../models/cardModel").cardBackModel;
 
+/*DataService Interface*/
+
+/*You can read the function name as comment*/
 
 var getCardByName = function (cardName) {
     return new Promise((resolve, reject)=>{
@@ -21,7 +24,6 @@ var getCardByName = function (cardName) {
 var getCardsByClassNameAndCost = function(className, cost, pageNum, size){
 
     return new Promise((resolve, reject) => {
-        console.log("im here");
         const query = {
             "playerClass": className,
             "type": "Minion",
@@ -34,8 +36,8 @@ var getCardsByClassNameAndCost = function(className, cost, pageNum, size){
             "cost":Number(cost)
         };
 
-        if( Number(cost) === 10){
-            query.cost = {$gt: Number(cost)}
+        if(Number(cost) === 10){
+            query.cost = {$gt: Number(cost)};
         }
         cardModel.find(query)
             .skip((pageNum-1)*size)
@@ -71,7 +73,7 @@ var getCardsByRarityAndCost = function(rarity, cost, pageNum, size){
         };
 
         if(Number(cost) === 10){
-            query.cost = {$gt: Number(cost)}
+            query.cost = {$gt: Number(cost)};
         }
         cardModel.find(query)
             .skip((pageNum-1)*size)

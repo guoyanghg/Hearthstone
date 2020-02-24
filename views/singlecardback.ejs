@@ -17,24 +17,53 @@
         <div class="col-sm-6 col-md-8 col-lg-8 mt-5">
             <div class="card mt-4 mb-3">
                 <div class="card-header">
-                    CardBack Info
+                    <b>CardBack Info</b>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">Name:<%=cardback.name%></p>
-                    <p class="card-text">Desc:<%=cardback.description%></p>
+                    <table class="table table-borderless">
+                        <tbody>
+                        <tr>
+                            <th style="width: 50%" scope="row">Name</th>
+                            <td><%=cardback.name%></td>
+                        </tr>
+                        <tr>
+                            <th style="width: 50%" scope="row">Description</th>
+                            <td><%=cardback.description%></td>
+
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <div class="card mb-5">
                 <div class="card-header">
-                    Other Info
+                    <b>Other Info</b>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">CardBackId:<%=cardback.cardBackId%></p>
-                    <p class="card-text">Source:<%=cardback.source%></p>
-                    <p class="card-text">HowToGet:<%=cardback.howToGet%></p>
-                    <% if (cardback.locale!==undefined) {%>
-                        <p class="card-text">Locale: <%= cardback.locale%></p>
-                    <%}%>
+                    <table class="table table-borderless">
+                        <tbody>
+                        <tr>
+                            <th style="width: 50%" scope="row">ID</th>
+                            <td><%=cardback.cardBackId%></td>
+                        </tr>
+                        <tr>
+                            <th style="width: 50%" scope="row">Source</th>
+                            <td><%=cardback.source%></td>
+                        </tr>
+                        <% if (cardback.howToGet!==undefined) {%>
+                        <tr>
+                            <th style="width: 50%" scope="row">HowToGet</th>
+                            <td><%=cardback.howToGet%></td>
+                        </tr>
+                        <%}%>
+                        <% if (cardback.locale!==undefined) {%>
+                        <tr>
+                            <th style="width: 50%" scope="row">Locale</th>
+                            <td><%=cardback.locale%></td>
+                        </tr>
+                        <%}%>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
