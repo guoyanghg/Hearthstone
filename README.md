@@ -6,7 +6,7 @@ As a crazy Blizzard game fan, I implemented a HearthStone-Wiki project, the data
 https://hearthstoneapi.com
 
 ![index](screenshots/index.png)
-![indexbottom](screenshots/index bottom.png)
+![indexbottom](screenshots/indexbottom.png)
 
 The goal of this website is to display HearthStone Card data in different ways:
 
