@@ -1,8 +1,7 @@
 # Hearthstone-Wiki
 
 This project is for the SupplyFrame internship challenge. As a crazy Blizzard game fan, I pull the data for this full-stack system from
-
-https://hearthstoneapi.com/ .
+https://hearthstoneapi.com
 
 The goal of this website is to display HearthStone Card data in different ways:
 
@@ -18,9 +17,7 @@ UI layout is implemented mainly based on Bootstrap 4.4 and there is also some cu
 
 The architeture for backend is Node + Express + EJS. 
 
-Because there are some broken image links so I use plain JS in the client end to handle the 404 ERROR and replace them to the default
-
-image
+Because there are some broken image links so I use plain JS in the client end to handle the 404 ERROR and replace them with the default image
 
 ## Getting Started
 
