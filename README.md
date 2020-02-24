@@ -10,7 +10,7 @@ https://hearthstoneapi.com
 
 The goal of this website is to display HearthStone Card data in different ways:
 
-First, users can search cards by PlayerClass. There are 9 classes and 1 neutral catagroy.
+First, users can search for cards by PlayerClass. There are 9 classes and 1 neutral category.
 
 ![class](screenshots/class.png)
 
@@ -18,19 +18,19 @@ Second, users can also grab cards by Rarity. There are 5 rarities in total.
 
 ![rarity](screenshots/rarity.png)
 
-For both searching method, paginaion is implemented and there is also a filter for user to get data of distinct Cost.
+For both searching methods, pagination is implemented and there is also a filter for the user to get data of distinct Cost.
 
 ![paginantion](screenshots/pagination.png)
 ![cards](screenshots/cards.png)
 ![filter](screenshots/filter.png)
 ![singlecard](screenshots/singlecard.png)
 
-Users can also get the card back information form cardback Interface.
+Users can also get the card back information form the Cardback Interface.
 
 ![cardback](screenshots/cardback.png)
 ![singlecardback](screenshots/singlecardback.png)
 
-UI layout is implemented mainly based on Bootstrap 4.4 and there is also some customed CSS. The architeture for backend is Node + Express + EJS. Because there are some broken image links so I use plain JS in the client end to handle the 404 ERROR and replace them with the default image
+The UI layout is implemented mainly based on Bootstrap 4.4 and there is also some customed CSS. The architecture for the backend is Node + Express + EJS. Because there are some broken image links so I use plain JS in the client end to handle the 404 ERROR and replace them with the default image
 
 ## Getting Started
 
@@ -38,7 +38,7 @@ This project is being developed on the macOS 10.15.2.
 
 ### Prerequisites
 
-First, you should install node and then you will get a npm as well.
+First, you should install Node and then you will get the NPM as well.
 
 you can check these following documents for the different OS: 
 
