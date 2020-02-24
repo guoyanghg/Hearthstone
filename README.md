@@ -1,23 +1,36 @@
 # Hearthstone-Wiki
 
-This project is for the SupplyFrame internship challenge. As a crazy Blizzard game fan, I pull the data for this full-stack system from
+This project is for the SupplyFrame internship challenge. 
+
+As a crazy Blizzard game fan, I implemented a HearthStone-Wiki project, the data is pulled from
 https://hearthstoneapi.com
+
+![index](screensots/index.png)
+![indexbottom](screensots/index bottom.png)
 
 The goal of this website is to display HearthStone Card data in different ways:
 
 First, users can search cards by PlayerClass. There are 9 classes and 1 neutral catagroy.
 
+![class](screensots/class.png)
+
 Second, users can also grab cards by Rarity. There are 5 rarities in total.
+
+![rarity](screensots/rarity.png)
 
 For both searching method, paginaion is implemented and there is also a filter for user to get data of distinct Cost.
 
-Users can also get the card back information form another Interface.
+![paginantion](screensots/pagination.png)
+![cards](screensots/cards.png)
+![filter](screensots/filter.png)
+![singlecard](screensots/singlecard.png)
 
-UI layout is implemented mainly based on Bootstrap 4.4 and there is also some customed CSS.
+Users can also get the card back information form cardback Interface.
 
-The architeture for backend is Node + Express + EJS. 
+![cardback](screensots/cardback.png)
+![singlecardback](screensots/singlecardback.png)
 
-Because there are some broken image links so I use plain JS in the client end to handle the 404 ERROR and replace them with the default image
+UI layout is implemented mainly based on Bootstrap 4.4 and there is also some customed CSS. The architeture for backend is Node + Express + EJS. Because there are some broken image links so I use plain JS in the client end to handle the 404 ERROR and replace them with the default image
 
 ## Getting Started
 
@@ -69,7 +82,6 @@ nodemon start
 open the brower: 
 
 http://localhost:3000
-
 
 
 ## Authors
