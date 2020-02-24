@@ -19,8 +19,8 @@
             <div class="col-xs-12 col-sm-6 col-md-4 mb-3">
                 <div class="card">
                     <div class="card-body text-center">
-                        <p><a href="<%="./rarity/"+rarity[i].rarity+"?pageNum=1"%>"><img class="img-fluid" src="<%=rarity[i].img%>" alt="<%=rarity[i].rarity%>"></a></p>
-                        <a href="<%="./rarity/"+rarity[i].rarity+"?pageNum=1"%>"><h4 class="card-title"><%=rarity[i].rarity%></h4></a>
+                        <p><a href="<%=baseurl+pathurl+"/"+rarity[i].rarity+"?pageNum=1"%>"><img class="img-fluid" src="<%=rarity[i].img%>" alt="<%=rarity[i].rarity%>"></a></p>
+                        <a href="<%=baseurl+pathurl+"/"+rarity[i].rarity+"?pageNum=1"%>"><h4 class="card-title"><%=rarity[i].rarity%></h4></a>
                     </div>
                 </div>
             </div>
@@ -29,6 +29,7 @@
     </div>
 </section>
 
+<%include partials/footer.ejs%>
 <%include partials/script%>
 </body>
 </html>

@@ -24,6 +24,35 @@
                             </a>
                         </li>
                 <%}%>
+
+                    <%if (activeItem=== 2){%>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/api/v1/class">PlayerClass</a>
+                        </li>
+                    <%} else {%>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/api/v1/class">PlayerClass</a>
+                        </li>
+                    <%}%>
+                    <%if (activeItem=== 3){%>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/api/v1/rarity">Rarity</a>
+                        </li>
+                    <%} else {%>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/api/v1/rarity">Rarity</a>
+                        </li>
+                    <%}%>
+                    <%if (activeItem=== 4){%>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/api/v1/cardback?pageNum=1">CardBacks</a>
+                        </li>
+                    <%} else {%>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/api/v1/cardback?pageNum=1">CardBacks</a>
+                        </li>
+                    <%}%>
+
                 <%if (activeItem=== 1){%>
                         <li class="nav-item active">
                             <a class="nav-link" href="/contact">Contact</a>

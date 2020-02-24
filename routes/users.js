@@ -110,70 +110,132 @@ router.get('/singlecard/:cardname', function(req, res, next) {
     cardService.getCardByName(cardname)
         .then(card=>{
             console.log(card);
-            res.render('singlecard', {card: card, activeItem: -1});
+            res.render('singlecard', {
+                card: card,
+                activeItem: -1
+            });
         });
 });
 
 router.get('/class/:classname', function(req, res, next) {
     const classname = req.params.classname;
     var pageNum = req.query.pageNum || 1;
-    console.log(pageNum);
-    cardService.getCardsByClassName(classname, pageNum, 12)
-        .then(resultobj => {
-            res.render('cards', {
-                cards: resultobj.cards,
-                title: classname,
-                pageNum: pageNum,
-                baseurl: req.baseUrl,
-                pathurl: req.path,
-                totalNum: resultobj.totalNum,
-                activeItem: -1
+    var cost = req.query.cost;
+    if(cost!==undefined){
+        cardService.getCardsByClassNameAndCost(classname, cost, pageNum, 12)
+            .then(resultobj => {
+                console.log(cost);
+                res.render('cards', {
+                    cards: resultobj.cards,
+                    title: classname,
+                    pageNum: pageNum,
+                    baseurl: req.baseUrl,
+                    pathurl: req.path,
+                    totalNum: resultobj.totalNum,
+                    activeItem: 2,
+                    cost:Number(cost)
+                });
             });
-        });
-
+    }else {
+        cardService.getCardsByClassName(classname, pageNum, 12)
+            .then(resultobj => {
+                console.log(cost);
+                res.render('cards', {
+                    cards: resultobj.cards,
+                    title: classname,
+                    pageNum: pageNum,
+                    baseurl: req.baseUrl,
+                    pathurl: req.path,
+                    totalNum: resultobj.totalNum,
+                    activeItem: 2,
+                    cost: undefined
+                });
+            });
+    }
 });
 
 
 router.get('/class', function(req, res, next) {
-    res.render("class", {playerClasses: playerClasses, activeItem: -1});
+    res.render("class", {
+        playerClasses: playerClasses,
+        activeItem: 2,
+        baseurl: req.baseUrl,
+        pathurl: req.path
+    });
 });
 
 router.get('/rarity', function(req, res, next) {
-    res.render("rarity", {rarity: rarity, activeItem: -1});
+    res.render("rarity", {
+        rarity: rarity,
+        activeItem: 3,
+        baseurl: req.baseUrl,
+        pathurl: req.path
+    });
 });
 
 router.get('/rarity/:rarityname', function(req, res, next) {
     var rarityname = req.params.rarityname;
     var pageNum = req.query.pageNum || 1;
+    var cost = req.query.cost;
     console.log(pageNum);
-    cardService.getCardsByRarity(rarityname, pageNum, 12)
+    if(cost!==undefined){
+        cardService.getCardsByRarityAndCost(rarityname, cost, pageNum, 12)
+            .then(resultobj => {
+                console.log(cost);
+                res.render('cards', {
+                    cards: resultobj.cards,
+                    title: rarityname,
+                    pageNum: pageNum,
+                    baseurl: req.baseUrl,
+                    pathurl: req.path,
+                    totalNum: resultobj.totalNum,
+                    activeItem: 3,
+                    cost:Number(cost)
+                });
+            });
+    }else {
+        cardService.getCardsByRarity(rarityname, pageNum, 12)
+            .then(resultobj => {
+                res.render('cards', {
+                    cards: resultobj.cards,
+                    title: rarityname,
+                    pageNum: pageNum,
+                    baseurl: req.baseUrl,
+                    pathurl: req.path,
+                    totalNum: resultobj.totalNum,
+                    activeItem: 3,
+                    cost:undefined
+                });
+            });
+    }
+
+});
+
+router.get('/cardback', function(req, res, next) {
+    var pageNum = req.query.pageNum || 1;
+    console.log(pageNum);
+    cardService.getCardBacks(pageNum, 12)
         .then(resultobj => {
-            res.render('cards', {
-                cards: resultobj.cards,
-                title: rarityname,
+            res.render('cardbacks', {
+                cardbacks: resultobj.cardbacks,
+                title: "CardBacks",
                 pageNum: pageNum,
                 baseurl: req.baseUrl,
                 pathurl: req.path,
                 totalNum: resultobj.totalNum,
-                activeItem: -1
+                activeItem: 4,
+                cost:undefined
             });
         });
 });
 
-router.get('/cardback', function(req, res, next) {
-    const classname = req.params.classname;
-    var pageNum = req.query.pageNum || 1;
-    console.log(pageNum);
-    cardService.getCardsByClassName(classname, pageNum, 12)
-        .then(resultobj => {
-            res.render('cards', {
-                cards: resultobj.cards,
-                title: classname,
-                pageNum: pageNum,
-                baseurl: req.baseUrl,
-                pathurl: req.path,
-                totalNum: resultobj.totalNum,
-                activeItem: -1
+router.get('/cardback/:cardbackid', function(req, res, next) {
+    var cardbackid = req.params.cardbackid;
+    cardService.getCardBackById(cardbackid)
+        .then(cardback => {
+            res.render('singlecardback', {
+                cardback: cardback,
+                activeItem: 4
             });
         });
 });

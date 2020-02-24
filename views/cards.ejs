@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/stylesheets/cards.css">
     <title><%=title%></title>
     <script>
+
         function imgErrorFront(image) {
             // this will step up to get the parent of the image's parent
 
@@ -32,6 +33,9 @@
 <section id="team" class="pb-5">
     <div class="container">
         <h5 class="section-title h1"><%=title%></h5>
+
+        <%include partials/costfilter.ejs%>
+
             <!-- card loop -->
         <%for (var i=0;i<Math.ceil(cards.length/4);i++) { %>
         <div class="row">
@@ -64,6 +68,8 @@
     </div>
     <%include partials/buttongroup.ejs%>
 </section>
+
+<%include partials/footer.ejs%>
 <%include partials/script.ejs%>
 
 </body>

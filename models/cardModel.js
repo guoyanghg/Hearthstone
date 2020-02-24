@@ -5,10 +5,20 @@ mongoose.connect('mongodb+srv://guoyanghg:guoyangguoli123@hearthstone-jbkpq.mong
     useUnifiedTopology: true
 });
 
-//textschema for collection test
-var testSchema = new mongoose.Schema({
+
+// create cardback schema
+var cardBackSchema  = new mongoose.Schema({
+    cardBackId: String,
     name: String,
-    major: String,
+    description: String,
+    source: String,
+    howToGet: String,
+    enabled: Boolean,
+    img: String,
+    imgAnimated: String,
+    sortCategory: String,
+    sortOrder:String,
+    locale:String
 });
 // create card schema
 var commonCardSchema  = new mongoose.Schema({
@@ -43,5 +53,9 @@ var commonCardSchema  = new mongoose.Schema({
 
 // pay attention to the collection name!!!! damn
 var commonCardModel = mongoose.model('commonCardModel', commonCardSchema, 'cards');
+var cardBackModel = mongoose.model('cardBackModel', cardBackSchema, 'cardbacks');
 
-module.exports = commonCardModel;
+module.exports = {
+    commonCardModel:commonCardModel,
+    cardBackModel:cardBackModel
+};

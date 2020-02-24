@@ -11,7 +11,7 @@
             // this will step up to get the parent of the image's parent
 
             image.onerror = "";
-            image.src = "/images/broken_image.png";
+            image.src = "/images/Card_Back_Default.png";
             image.parentElement.nextElementSibling.innerHTML="Opps! Image link broken!";
             return true;
         }
@@ -22,7 +22,7 @@
             image.onerror = "";
             image.parentElement.href="";
             image.parentElement.parentElement.nextElementSibling.innerHTML="Opps! Image link broken!";
-            image.src = "/images/broken_image_gold.gif";
+            image.src = "/images/Card_Back_Default.gif";
             return true;
         }
     </script>
@@ -33,25 +33,25 @@
     <div class="container">
         <h5 class="section-title h1"><%=title%></h5>
         <!-- card loop -->
-        <%for (var i=0;i<Math.ceil(cards.length/4);i++) { %>
+        <%for (var i=0;i<Math.ceil(cardbacks.length/4);i++) { %>
             <div class="row">
-                <% for(var j=0;j<Math.min(4, cards.length-i*4);j++) { %>
+                <% for(var j=0;j<Math.min(4, cardbacks.length-i*4);j++) { %>
                 <div class="col-lg-3 col-md-4">
                     <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                         <div class="mainflip">
                             <div class="frontside">
                                 <div class="card">
                                     <div class="card-body text-center">
-                                        <p><img onerror="imgErrorFront(this)" class="card-img" src="<%=cards[i*4+j].img%>" alt="card image"></p>
-                                        <h4 class="card-title"><%=cards[i*4+j].name%></h4>
+                                        <p><img onerror="imgErrorFront(this)" class="card-img" src="<%=cardbacks[i*4+j].img%>" alt="card image"></p>
+                                        <h4 class="card-title"><%=cardbacks[i*4+j].name%></h4>
                                     </div>
                                 </div>
                             </div>
                             <div class="backside">
                                 <div class="card">
                                     <div class="card-body text-center">
-                                        <p><a href="<%=baseurl +"/singlecard/"+cards[i*4+j].name%>"><img onerror="imgErrorBack(this)" class="card-img" src="<%=cards[i*4+j].imgGold%>" alt="card imageGold"></a></p>
-                                        <h4 class="card-title"><%=cards[i*4+j].name%></h4>
+                                        <p><a href="<%=baseurl +"/cardback/"+cardbacks[i*4+j].cardBackId%>"><img onerror="imgErrorBack(this)" class="card-img" src="<%=cardbacks[i*4+j].imgAnimated%>" alt="card imgAnimated"></a></p>
+                                        <h4 class="card-title"><%=cardbacks[i*4+j].name%></h4>
                                     </div>
                                 </div>
                             </div>
@@ -64,6 +64,8 @@
     </div>
     <%include partials/buttongroup.ejs%>
 </section>
+
+<%include partials/footer.ejs%>
 <%include partials/script.ejs%>
 
 </body>

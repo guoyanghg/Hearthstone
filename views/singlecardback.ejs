@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%include partials/header.ejs%>
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <title><%=cardback.name%></title>
+</head>
+<body>
+<%include partials/navbar%>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-lg-4">
+            <div class="card">
+                <img class="card-img-top" src="<%=cardback.img%>">
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-8 col-lg-8 mt-5">
+            <div class="card mt-4 mb-3">
+                <div class="card-header">
+                    CardBack Info
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Name:<%=cardback.name%></p>
+                    <p class="card-text">Desc:<%=cardback.description%></p>
+                </div>
+            </div>
+            <div class="card mb-5">
+                <div class="card-header">
+                    Other Info
+                </div>
+                <div class="card-body">
+                    <p class="card-text">CardBackId:<%=cardback.cardBackId%></p>
+                    <p class="card-text">Source:<%=cardback.source%></p>
+                    <p class="card-text">HowToGet:<%=cardback.howToGet%></p>
+                    <% if (cardback.locale!==undefined) {%>
+                        <p class="card-text">Locale: <%= cardback.locale%></p>
+                    <%}%>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%include partials/footer.ejs%>
+<%include partials/script.ejs%>
+
+</body>
+</html>

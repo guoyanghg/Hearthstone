@@ -1,4 +1,5 @@
-var cardModel = require("../models/cardModel");
+var cardModel = require("../models/cardModel").commonCardModel;
+var cardBackModel = require("../models/cardModel").cardBackModel;
 
 
 var getCardByName = function (cardName) {
@@ -17,9 +18,83 @@ var getCardByName = function (cardName) {
     })
 };
 
+var getCardsByClassNameAndCost = function(className, cost, pageNum, size){
+
+    return new Promise((resolve, reject) => {
+        console.log("im here");
+        const query = {
+            "playerClass": className,
+            "type": "Minion",
+            "img": {
+                "$exists":true
+            },
+            "imgGold":{
+                "$exists":true
+            },
+            "cost":Number(cost)
+        };
+
+        if( Number(cost) === 10){
+            query.cost = {$gt: Number(cost)}
+        }
+        cardModel.find(query)
+            .skip((pageNum-1)*size)
+            .limit(size)
+            .sort({cost:'asc'})
+            .exec(function (err, cards) {
+                cardModel.countDocuments(query).exec(function (err, count) {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve({cards: cards, totalNum: Math.ceil(count/size)});
+                    }
+                });
+            });
+
+    });
+};
+
+var getCardsByRarityAndCost = function(rarity, cost, pageNum, size){
+
+    return new Promise((resolve, reject) => {
+        console.log("im here");
+        const query = {
+            "rarity": rarity,
+            "type": "Minion",
+            "img": {
+                "$exists":true
+            },
+            "imgGold":{
+                "$exists":true
+            },
+            "cost":Number(cost)
+        };
+
+        if(Number(cost) === 10){
+            query.cost = {$gt: Number(cost)}
+        }
+        cardModel.find(query)
+            .skip((pageNum-1)*size)
+            .limit(size)
+            .sort({cost:'asc'})
+            .exec(function (err, cards) {
+                cardModel.countDocuments(query).exec(function (err, count) {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve({cards: cards, totalNum: Math.ceil(count/size)});
+                    }
+                });
+            });
+
+    });
+};
+
+
 var getCardsByClassName = function(className, pageNum, size){
 
     return new Promise((resolve, reject) => {
+        console.log("im here");
         const query = {
             "playerClass": className,
             "type": "Minion",
@@ -38,7 +113,7 @@ var getCardsByClassName = function(className, pageNum, size){
             .limit(size)
             .sort({cost:'asc'})
             .exec(function (err, cards) {
-                cardModel.count(query).exec(function (err, count) {
+                cardModel.countDocuments(query).exec(function (err, count) {
                     if (err) {
                         reject(err);
                     } else {
@@ -71,7 +146,7 @@ var getCardsByRarity = function(rarity, pageNum, size){
             .limit(size)
             .sort({cost:'asc'})
             .exec(function (err, cards) {
-                cardModel.count(query).exec(function (err, count) {
+                cardModel.countDocuments(query).exec(function (err, count) {
                     if (err) {
                         reject(err);
                     } else {
@@ -83,32 +158,44 @@ var getCardsByRarity = function(rarity, pageNum, size){
     });
 };
 
-var getCardBacks = function(className, pageNum, size){
+
+var getCardBackById = function (id) {
+    return new Promise((resolve, reject)=>{
+        const query ={
+            "cardBackId": id
+        };
+        cardBackModel.findOne(query, (err, cardback)=>{
+            if(err){
+                reject(err);
+            }else{
+                resolve(cardback);
+            }
+        });
+
+    })
+};
+
+var getCardBacks = function(pageNum, size){
 
     return new Promise((resolve, reject) => {
         const query = {
-            "playerClass": className,
-            "type": "Minion",
             "img": {
                 "$exists":true
             },
-            "imgGold":{
+            "imgAnimated":{
                 "$exists":true
             },
-            "cost":{
-                "$exists":true
-            }
         };
-        cardModel.find(query)
+        cardBackModel.find(query)
             .skip((pageNum-1)*size)
             .limit(size)
-            .sort({cost:'asc'})
-            .exec(function (err, cards) {
-                cardModel.count(query).exec(function (err, count) {
+            .sort({cardBackId:'asc'})
+            .exec(function (err, cardbacks) {
+                cardBackModel.countDocuments(query).exec(function (err, count) {
                     if (err) {
                         reject(err);
                     } else {
-                        resolve({cards: cards, totalNum: Math.ceil(count/size)});
+                        resolve({cardbacks: cardbacks, totalNum: Math.ceil(count/size)});
                     }
                 });
             });
@@ -120,5 +207,9 @@ var getCardBacks = function(className, pageNum, size){
 module.exports = {
     getCardByName:getCardByName,
     getCardsByClassName: getCardsByClassName,
-    getCardsByRarity: getCardsByRarity
+    getCardsByRarity: getCardsByRarity,
+    getCardBacks: getCardBacks,
+    getCardBackById: getCardBackById,
+    getCardsByClassNameAndCost: getCardsByClassNameAndCost,
+    getCardsByRarityAndCost: getCardsByRarityAndCost
 };
