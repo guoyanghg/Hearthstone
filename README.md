@@ -10,7 +10,7 @@ https://hearthstoneapi.com
 
 The goal of this website is to display HearthStone Card data in different ways:
 
-First, users can search for cards by PlayerClass. There are 9 classes and 1 neutral category.
+First, users can search for cards by PlayerClass. There are 9 playerclasses and 1 neutral class.
 
 ![class](screenshots/class.png)
 
@@ -30,7 +30,7 @@ Users can also get the card back information form the Cardback Interface.
 ![cardback](screenshots/cardback.png)
 ![singlecardback](screenshots/singlecardback.png)
 
-The UI layout is implemented mainly based on Bootstrap 4.4 and there is also some customed CSS. The architecture for the backend is Node + Express + EJS. Because there are some broken image links so I use plain JS in the client end to handle the 404 ERROR and replace them with the default image
+The UI layout is implemented mainly based on Bootstrap 4 and there is also some customed CSS. The architecture for the backend is Node + Express + EJS. Because there are some broken image links so I use plain JS in the client end to handle the 404 ERROR and replace them with the default image
 
 ## Getting Started
 
