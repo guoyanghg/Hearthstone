@@ -12,6 +12,7 @@
             // this will step up to get the parent of the image's parent
 
             image.onerror = "";
+            image.parentElement.href="";
             image.src = "/images/broken_image.png";
             image.parentElement.nextElementSibling.innerHTML="Opps! Image link broken!";
             return true;
@@ -46,7 +47,7 @@
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img id="<%=cards[i*4+j].name%>" onerror="imgErrorFront(this)" class="card-img" src="<%=cards[i*4+j].img%>" alt="card image"></p>
+                                    <p><a href="<%=baseurl +"/singlecard/"+cards[i*4+j].name%>"><img onerror="imgErrorFront(this)" class="card-img" src="<%=cards[i*4+j].img%>" alt="<%=cards[i*4+j].name%>"></a></p>
                                     <h4 class="card-title"><%=cards[i*4+j].name%></h4>
                                 </div>
                             </div>

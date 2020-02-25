@@ -13,13 +13,13 @@
             <ul class="navbar-nav ml-auto">
                 <%if (activeItem === 0) {%>
                         <li class="nav-item active">
-                            <a class="nav-link" href="/">Home
+                            <a id="nav-home" class="nav-link" href="/">Home
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
                 <%} else{%>
                         <li class="nav-item">
-                            <a class="nav-link" href="/">Home
+                            <a id="nav-home" class="nav-link" href="/">Home
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
@@ -27,39 +27,39 @@
 
                     <%if (activeItem=== 2){%>
                         <li class="nav-item active">
-                            <a class="nav-link" href="/api/v1/class">PlayerClass</a>
+                            <a id="nav-class" class="nav-link" href="/api/v1/class">PlayerClass</a>
                         </li>
                     <%} else {%>
                         <li class="nav-item">
-                            <a class="nav-link" href="/api/v1/class">PlayerClass</a>
+                            <a id="nav-class" class="nav-link" href="/api/v1/class">PlayerClass</a>
                         </li>
                     <%}%>
                     <%if (activeItem=== 3){%>
                         <li class="nav-item active">
-                            <a class="nav-link" href="/api/v1/rarity">Rarity</a>
+                            <a id="nav-rarity" class="nav-link" href="/api/v1/rarity">Rarity</a>
                         </li>
                     <%} else {%>
                         <li class="nav-item">
-                            <a class="nav-link" href="/api/v1/rarity">Rarity</a>
+                            <a id="nav-rarity" class="nav-link" href="/api/v1/rarity">Rarity</a>
                         </li>
                     <%}%>
                     <%if (activeItem=== 4){%>
                         <li class="nav-item active">
-                            <a class="nav-link" href="/api/v1/cardback?pageNum=1">CardBacks</a>
+                            <a id="nav-cardback" class="nav-link" href="/api/v1/cardback?pageNum=1">CardBacks</a>
                         </li>
                     <%} else {%>
                         <li class="nav-item">
-                            <a class="nav-link" href="/api/v1/cardback?pageNum=1">CardBacks</a>
+                            <a id="nav-cardback" class="nav-link" href="/api/v1/cardback?pageNum=1">CardBacks</a>
                         </li>
                     <%}%>
 
                 <%if (activeItem=== 1){%>
                         <li class="nav-item active">
-                            <a class="nav-link" href="/contact">Contact</a>
+                            <a id="nav-contact" class="nav-link" href="/contact">Contact</a>
                         </li>
                 <%} else {%>
                         <li class="nav-item">
-                            <a class="nav-link" href="/contact">Contact</a>
+                            <a id="nav-contact" class="nav-link" href="/contact">Contact</a>
                         </li>
                 <%}%>
             </ul>
