@@ -79,7 +79,9 @@ cd to the Hearthstone/
 nodemon start
 ```
 
-open the brower: 
+This project depends on remote services, so please make sure your Internet connection.
+
+Open the brower: 
 
 http://localhost:3000
 
